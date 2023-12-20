@@ -1,0 +1,18 @@
+#InsertionSort
+
+def insertionsort(arr):
+    for i in range(1,len(arr)):
+        j=i
+        while j>0 and arr[j]< arr[j-1]:
+            swap(j-1,j,arr)
+            j-=1
+    print(arr)
+    return arr
+        
+            
+            
+def swap(i,j,arr):
+    arr[i], arr[j] = arr[j], arr[i]
+    
+arr= [9,5,7,0,2,4,7]
+insertionsort(arr)
