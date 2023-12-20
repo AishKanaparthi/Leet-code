@@ -1,0 +1,17 @@
+#strings,palindomecheck
+
+def PalindromeCheck(word):
+    s =[]
+    for i in reversed(range(len(word))):
+        s.append(word[i])
+    r_w= "".join()
+    
+    if(r_w == word):
+        print(True)
+    else:
+        print(False)
+
+word= "abcdcba"
+PalindromeCheck(word)
+    
+    
