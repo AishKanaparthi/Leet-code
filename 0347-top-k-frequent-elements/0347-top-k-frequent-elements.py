@@ -1,16 +1,20 @@
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        from collections import Counter
-
-        # Count the frequency of each element in nums
-        counts = Counter(nums)
-
-        # Sort the elements by their frequencies in descending order
-        sorted_elements = sorted(counts.keys(), key=lambda x: -counts[x])
-
-        # Return the top k frequent elements
-        return sorted_elements[:k]
-
-                    
+        count={}
+        freq= [[] for i in range(len(nums)+1)]
+        
+        for n in nums:
+            count[n] = 1+ count.get(n,0)
+        for n, c in count.items():
+            freq[c].append(n)
+        
+        res=[]
+        for i in range(len(freq)-1, 0,-1):
+            for a in freq[i]:
+                res.append(a)
+                if len(res)== k:
+                    return res
             
+        
+                
         
