@@ -1,11 +1,16 @@
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        num_dict = {}  
+        l=0
+        r=len(numbers)-1
         
-        for i, num in enumerate(numbers):
-            complement = target - num
-            if complement in num_dict:
-                return [num_dict[complement] + 1, i + 1]
-            num_dict[num] = i
-
-                    
+        while l<r:
+            if((numbers[l]+numbers[r]) > target):
+                
+                r -=1
+            elif((numbers[l]+numbers[r]) < target):
+                l+=1
+            if numbers[l]+numbers[r] == target:
+                return [l+1,r+1]
+                
+            
+        
