@@ -1,31 +1,26 @@
-
-
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 class Solution:
-    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        prev, curr = None, head
-        
-        while curr is not None:
-            temp = curr.next
-            curr.next = prev
-            prev = curr
-            curr = temp
-        
-        return prev
-
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        reversed_head = self.reverseList(head)
+        dummy =ListNode(0,head)
         
-        # Handle case where the head itself needs to be removed
-        if n == 1:
-            return self.reverseList(reversed_head.next)
+        left= dummy
+        right = head
         
-        # Find the nth node from the start (now nth node from the end in the reversed list)
-        prev, curr = None, reversed_head
-        for _ in range(n-1):
-            prev, curr = curr, curr.next
+        while n>0:
+            right= right.next
+            n-=1
         
-        # Remove the nth node
-        prev.next = curr.next
+        while right:
+           
+            left= left.next
+            right= right.next
+            
         
-        # Reverse the list again to get the final result
-        return self.reverseList(reversed_head)
+        left.next = left.next.next
+        
+        return dummy.next    
+        
