@@ -1,21 +1,27 @@
 class Solution:
     def validPalindrome(self, s: str) -> bool:
-        i, j = 0, len(s) - 1
+        l=0
+        r= len(s) -1
         
-        while i < j:
-            if s[i] == s[j]:
-                i += 1
-                j -= 1
+        while l<r:
+            if(s[l] == s[r]):
+                l+=1
+                r-=1
             else:
-                return self.validPalindromeUtil(s, i + 1, j) or self.validPalindromeUtil(s, i, j - 1)
+                return self.validPalindromeUtil(s, l + 1, r) or self.validPalindromeUtil(s, l, r - 1)  
         return True
     
-    def validPalindromeUtil(self, s, i, j):
-        while i < j:
-            if s[i] == s[j]:
-                i += 1
-                j -= 1
+    def validPalindromeUtil(self, s: str,l ,r) -> bool:
+        
+        while l<r:
+            if(s[l] == s[r]):
+                l+=1
+                r-=1
             else:
                 return False
-        
         return True
+            
+            
+            
+            
+            
