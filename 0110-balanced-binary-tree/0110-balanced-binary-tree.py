@@ -17,7 +17,7 @@ class Solution:
                 return -1
             return max(left,right)+1
         
-        
+        dfs(root)
         return dfs(root) !=-1
             
         
