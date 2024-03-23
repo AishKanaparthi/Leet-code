@@ -1,22 +1,21 @@
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
-        d=set(nums)
-        a= sorted(d)
+        d= set(nums)
         
+        d= sorted(d)
+        a=[[]]
         b=[]
-        c=[[]]
-        if(a==[]):
+        if d==[]:
             return 0
-        else:
-            for i in range(len(a)-1):
-                if(a[i]+1 == a[i+1]):
-                    b.append(a[i])
-                else:
-                    c.append(b)
-                    b=[]
+        for i in range(len(d)-1):
+            if(d[i]+1 == d[i+1]):
+                b.append(d[i])
+            else:
+                a.append(b)
+                b=[]
+                
+        a.append(b)
+        max_len= max(a, key=len)
                     
-            
-            c.append(b)
-            max_length = max(c, key=len)
-        return len(max_length)+1
+        return len(max_len)+1
         
