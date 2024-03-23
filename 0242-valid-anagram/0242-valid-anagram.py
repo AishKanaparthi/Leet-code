@@ -1,4 +1,9 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        return sorted(s) == sorted(t)
+        countS = Counter(s)
+        countT = Counter(t)
+        
+        return countS.items() == countT.items()
+            
+        
         
