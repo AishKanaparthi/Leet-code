@@ -13,5 +13,5 @@ class Solution:
                             break
                     if not found_greater:
                         arr.append(-1)
-                    break
+                        break
         return arr
