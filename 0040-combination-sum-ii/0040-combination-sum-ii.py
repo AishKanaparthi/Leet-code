@@ -1,18 +1,15 @@
 class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
         
-        # Sort candidates to easily handle duplicates and maintain consistent order
         candidates.sort()
         
         res = []
         
         def dfs(i, cur, total):
-            # If the total is exactly the target, add the current combination to the result
             if total == target:
-                res.append(list(cur))
+                res.append(cur.copy())
                 return
             
-            # If total exceeds the target or we reach the end of the candidates list, return
             if total > target or i >= len(candidates):
                 return
             
